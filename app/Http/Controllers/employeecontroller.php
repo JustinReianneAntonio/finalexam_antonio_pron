@@ -20,11 +20,6 @@ class employeecontroller extends Controller
 
     public function create()
     {
-<<<<<<< HEAD
-
-
-        
-        return view('employee.create');
 
         return view ('employee.create');
 
@@ -33,6 +28,7 @@ class employeecontroller extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            
             'fname' => 'required',
             'lname' => 'required',
             'mname' => 'required',
@@ -44,20 +40,13 @@ class employeecontroller extends Controller
         employee::create($request->all());
         return redirect()->route('employee.index');
     }   
-=======
-        return view ('employee.create');
-    }
-        public function store(Request $request)
-    {
-        $employee = new employee;
-        $employee->name = $request->name;
-        $employee->email = $request->email;
-        $employee->phone = $request->phone;
-        $employee->save();
-        return redirect()->route('employee.index');
-    }
 
->>>>>>> 56100b5a0ffb58d4a1ffff2252b72c7f01fec9d3
+        public function show(int $id)
+        {
+            $employee = employee::find($id);
+            return view('employee.show', compact('employee'));
+        }
+
     public function edit( int $id)
     {
         $employee = employee::find($id);
@@ -66,9 +55,12 @@ class employeecontroller extends Controller
 
     public function update(Request $request, int $id) {
         $employee = employee::find($id);
-        $employee->name = $request->name;
-        $employee->email = $request->email;
-        $employee->phone = $request->phone;
+        $employee->fname = $request->fname;
+        $employee->lname = $request->lname;
+        $employee->mname = $request->mname;
+        $employee->address = $request->address;
+        $employee->dob = $request->dob;
+        $employee->contact = $request->contact;
         $employee->save();
         return redirect()->route('employee.index');
     }
