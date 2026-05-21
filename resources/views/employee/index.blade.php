@@ -43,8 +43,12 @@
                                             <td>{{ $employee->address }}</td>
                                             <td>{{ $employee->date_of_birth }}</td>
                                             <td> 
-                                                <a href="#" class="btn btn-primary btn-md active" role="button" aria-pressed="true">Edit</a>
-                                                <a href="#" class="btn btn-danger btn-md active" role="button" aria-pressed="true">Delete</a>
+                                                <a href="{{ route('employee.edit', $employee->id) }}" class="btn btn-primary">Edit</a>
+                                        <form action="{{ route('employee.destroy', $employee->id) }}" method="POST" style="display: inline-block;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this employee?')">Delete</button>
+                                        </form>
                                             </td>
                                         </tr>
                                         @empty
