@@ -23,23 +23,25 @@
               <div class="card-header">
                 <h3 class="card-title">Edit Employee Information</h3>
               </div>
-              <form>
+              <form action="{{ route('employee.update', $employees->id) }}" method="POST">
+                @csrf
+                @method('PUT')
                 <div class="row card-body col-12">
                   <div class="form-group col-12">
                     <label
                         for="exampleInputEmail1">First Name
                     </label>
-                        <input type="text" class="form-control g-2" id="first_name" name="first_name" placeholder="Enter your Firstname" require value="{{ $employees->fname}}">
+                        <input type="text" class="form-control g-2" id="fname" name="first_name" placeholder="Enter your Firstname" require value="{{ $employees->fname}}">
                   </div>                  
                 <div class="form-group col-12">
                   <label for="exampleInputPassword1">Last Name</label>
-                  <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Enter your Last Name"
+                  <input type="text" class="form-control" id="lname" name="last_name" placeholder="Enter your Last Name"
                   value="{{ $employees->lname}}">
                 </div>
                 <div class="form-group col-12">
                     <label for="exampleInputFile">Middle Name</label>
-                  <input type="text" class="form-control" id="middle_name" name="middle_name" placeholder="Enter your Middle Name"
-                  value="{{ $employees->midname}}">
+                  <input type="text" class="form-control" id="mname" name="middle_name" placeholder="Enter your Middle Name"
+                  value="{{ $employees->mname}}">
                 </div>
                 <div class="form-group col-12">
                   <label for="exampleInputEmail1">Address</label>
@@ -47,7 +49,7 @@
                 </div> 
                 <div class="form-group col-12">
                   <label for="exampleInputEmail1">Date of Birth</label>
-                  <input type="date" class="form-control" id="date_of_birth" name="date_of_birth" placeholder="Enter Date of Birth" value="{{ $employees->dateofbirth}}">
+                  <input type="date" class="form-control" id="dob" name="date_of_birth" placeholder="Enter Date of Birth" value="{{ $employees->dob}}">
                 </div>
                   <div class="form-group col-12">
                     <label for="exampleInputEmail1">Contact</label>
