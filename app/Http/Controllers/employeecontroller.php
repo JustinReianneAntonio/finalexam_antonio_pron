@@ -11,6 +11,9 @@ class employeecontroller extends Controller
  * tin mga ineditq 
  * index blade hindi ko mapagana employees
  * migrations check mo comment don
+ * check mo rin yung sa models
+ * and also tin diba may contact number na included sa table pero sa mga gawa mo wala
+ * dito ka lang sa controller mag comment pag rerreplyan moq
  */
 {
     public function index()
