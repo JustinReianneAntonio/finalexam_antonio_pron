@@ -43,6 +43,10 @@
                                             <td>{{ $employee->address }}</td>
                                             <td>{{ $employee->dob }}</td>
                                             <td>{{ $employee->contact }}</td>
+<<<<<<< HEAD
+=======
+                                            <td> 
+>>>>>>> 8cdd85cd2be25ecceea4d4632fd4e486c6589b60
                                                 <a href="{{ route('employee.edit', $employee->id) }}" class="btn btn-primary">Edit</a>
                                         <form action="{{ route('employee.destroy', $employee->id) }}" method="POST" style="display: inline-block;">
                                             @csrf
