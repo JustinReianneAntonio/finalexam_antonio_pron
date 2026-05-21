@@ -34,7 +34,7 @@
                                         </tr>
                                     </thead>
                                     <tbody  >
-                                        @foreach ($employees as $employee)
+                                        @forelse ($employees as $employee)
                                         <tr>
                                             <td>{{ $employee->id }}</td>
                                             <td>{{ $employee->first_name }}</td>
@@ -47,7 +47,11 @@
                                                 <a href="#" class="btn btn-danger btn-md active" role="button" aria-pressed="true">Delete</a>
                                             </td>
                                         </tr>
-                                        @endforeach
+                                        @empty
+                                            <tr>
+                                                <td colspan="7" class="text-center">No employees found.</td>
+                                            </tr>
+                                        @endforelse
                                     </tbody>
                                 </table>
                             </div>

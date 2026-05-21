@@ -10,19 +10,32 @@ class employeecontroller extends Controller
 {
     public function index()
     {   
-        return view ('employee.index');
+        $employees = employee::all();
+        return view ('employee.index', compact('employees'));
     }
 
 
     public function create()
     {
-        //
+        $employees = employee::all();
+        return view('employee.create', compact('employees'));
     }
 
 
     public function store(Request $request)
     {
-    //
+        $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'middle_name' => 'required',
+            'address' => 'required',
+            'date_of_birth' => 'required|date',
+        ]);
+
+        employee::create($request->all());
+
+        return redirect()->route('employee.index')
+                         ->with('success', 'Employee created successfully.');
     }
 
     public function edit( int $id)
