@@ -8,32 +8,35 @@ use App\Models\employee;
 
 class employeecontroller extends Controller
 /**
- * tin mga ineditq 
- * index blade hindi ko mapagana employees
- * migrations check mo comment don
- * check mo rin yung sa models
- * and also tin diba may contact number na included sa table pero sa mga gawa mo wala
- * dito ka lang sa controller mag comment pag rerreplyan moq
+ * ano pa saken tin?
  */
 {
     public function index()
     {   
-        return view ('employee.index');
+        $employees = employee::all();
+        return view ('employee.index', compact('employees'));
     }
 
 
     public function create()
     {
-        return view ('employee.create');
+        $employees = employee::all();
+        return view('employee.create', compact('employees'));
     }
         public function store(Request $request)
     {
-        $employee = new employee;
-        $employee->name = $request->name;
-        $employee->email = $request->email;
-        $employee->phone = $request->phone;
-        $employee->save();
-        return redirect()->route('employee.index');
+        $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'middle_name' => 'required',
+            'address' => 'required',
+            'date_of_birth' => 'required|date',
+        ]);
+
+        employee::create($request->all());
+
+        return redirect()->route('employee.index')
+                         ->with('success', 'Employee created successfully.');
     }
 
     public function edit( int $id)
