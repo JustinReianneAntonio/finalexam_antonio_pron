@@ -8,7 +8,7 @@ use App\Models\employee;
 
 class employeecontroller extends Controller
 /**
- * ano pa saken tin?
+ * ano yung action sa may index blade?
  */
 {
     public function index()

@@ -6,15 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class employee extends Model
 {
-    protected $table = 'employees';
+    protected $hasFactory = true;
+    protected $table = 'employee';
     protected $primaryKey = 'id';
     protected $keyType = 'int';
 
     protected $fillable = [
-        'first_name',
-        'last_name',
-        'middle_name',
+        'fname',
+        'lname',
+        'mname',
         'address',
-        'date_of_birth',
+        'dob',
     ];
 }

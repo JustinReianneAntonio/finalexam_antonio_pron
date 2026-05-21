@@ -37,11 +37,11 @@
                                         @forelse ($employees as $employee)
                                         <tr>
                                             <td>{{ $employee->id }}</td>
-                                            <td>{{ $employee->first_name }}</td>
-                                            <td>{{ $employee->last_name }}</td>
-                                            <td>{{ $employee->middle_name }}</td>
+                                            <td>{{ $employee->fname }}</td>
+                                            <td>{{ $employee->lname }}</td>
+                                            <td>{{ $employee->mname }}</td>
                                             <td>{{ $employee->address }}</td>
-                                            <td>{{ $employee->date_of_birth }}</td>
+                                            <td>{{ $employee->dob }}</td>
                                             <td> 
                                                 <a href="{{ route('employee.edit', $employee->id) }}" class="btn btn-primary">Edit</a>
                                         <form action="{{ route('employee.destroy', $employee->id) }}" method="POST" style="display: inline-block;">

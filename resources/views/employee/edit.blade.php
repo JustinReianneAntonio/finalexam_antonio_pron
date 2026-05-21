@@ -49,6 +49,10 @@
                   <label for="exampleInputEmail1">Date of Birth</label>
                   <input type="date" class="form-control" id="date_of_birth" name="date_of_birth" placeholder="Enter Date of Birth" value="{{ $employees->dateofbirth}}">
                 </div>
+                  <div class="form-group col-12">
+                    <label for="exampleInputEmail1">Contact</label>
+                    <input type="number" class="form-control" id="contact" name="contact" placeholder="Enter Contact Number" value="{{ $employees->contact}}">
+                  </div>
                 <div class="form-group col-6">
                   <button type="submit" class="btn btn-success col-12">Update Employee Record</button>
                 </div>
