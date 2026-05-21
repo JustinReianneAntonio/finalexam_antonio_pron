@@ -8,7 +8,7 @@ use App\Models\employee;
 
 class employeecontroller extends Controller
 /**
- * ano pa saken tin?
+ * ano yung action sa may index blade?
  */
 {
     public function index()
@@ -20,6 +20,7 @@ class employeecontroller extends Controller
 
     public function create()
     {
+<<<<<<< HEAD
 
 
         
@@ -43,6 +44,20 @@ class employeecontroller extends Controller
         employee::create($request->all());
         return redirect()->route('employee.index');
     }   
+=======
+        return view ('employee.create');
+    }
+        public function store(Request $request)
+    {
+        $employee = new employee;
+        $employee->name = $request->name;
+        $employee->email = $request->email;
+        $employee->phone = $request->phone;
+        $employee->save();
+        return redirect()->route('employee.index');
+    }
+
+>>>>>>> 56100b5a0ffb58d4a1ffff2252b72c7f01fec9d3
     public function edit( int $id)
     {
         $employee = employee::find($id);
