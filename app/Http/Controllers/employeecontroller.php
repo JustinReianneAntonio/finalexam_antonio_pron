@@ -37,7 +37,7 @@ class employeecontroller extends Controller
             'contact' => 'required',
         ]);
 
-        employee::create($request->all());
+        empty($request->id) ? $employee = new employee : $employee = employee::find($request->id);
         return redirect()->route('employee.index');
     }   
 

@@ -17,5 +17,6 @@ class employee extends Model
         'mname',
         'address',
         'dob',
+        'contact',
     ];
 }
