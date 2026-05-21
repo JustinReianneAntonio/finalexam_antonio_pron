@@ -30,7 +30,7 @@
                                             <th>Middle Name</th>
                                             <th>Address</th>
                                             <th>Date of Birth</th>
-                                            <th>Action</th>
+                                            <th>Contact</th>
                                         </tr>
                                     </thead>
                                     <tbody  >
@@ -42,7 +42,7 @@
                                             <td>{{ $employee->mname }}</td>
                                             <td>{{ $employee->address }}</td>
                                             <td>{{ $employee->dob }}</td>
-                                            <td> 
+                                            <td>{{ $employee->contact }}</td>
                                                 <a href="{{ route('employee.edit', $employee->id) }}" class="btn btn-primary">Edit</a>
                                         <form action="{{ route('employee.destroy', $employee->id) }}" method="POST" style="display: inline-block;">
                                             @csrf
