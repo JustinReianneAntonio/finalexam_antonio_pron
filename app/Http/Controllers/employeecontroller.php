@@ -20,23 +20,16 @@ class employeecontroller extends Controller
 
     public function create()
     {
-        $employees = employee::all();
-        return view('employee.create', compact('employees'));
+        return view ('employee.create');
     }
         public function store(Request $request)
     {
-        $request->validate([
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'middle_name' => 'required',
-            'address' => 'required',
-            'date_of_birth' => 'required|date',
-        ]);
-
-        employee::create($request->all());
-
-        return redirect()->route('employee.index')
-                         ->with('success', 'Employee created successfully.');
+        $employee = new employee;
+        $employee->name = $request->name;
+        $employee->email = $request->email;
+        $employee->phone = $request->phone;
+        $employee->save();
+        return redirect()->route('employee.index');
     }
 
     public function edit( int $id)
