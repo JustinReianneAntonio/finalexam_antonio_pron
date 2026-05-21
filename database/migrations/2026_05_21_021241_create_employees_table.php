@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        /**Schema::create('employeemngt', function (Blueprint $table) {
+       Schema::create('employee', function (Blueprint $table) {
             $table->id();
             $table->string('fname');
             $table->string('mname');
@@ -21,7 +21,6 @@ return new class extends Migration
             $table->string('contact');
             $table->timestamps();
         });
-        */
     }
 
     /**
@@ -29,7 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //Schema::dropIfExists('employeemngt');
-        //check mo nalang mga comment tin di kasi ako sure ty!
+        Schema::dropIfExists('employees');
     }
 };
